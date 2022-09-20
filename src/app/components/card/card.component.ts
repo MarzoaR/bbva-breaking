@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { EpisodeService } from 'src/app/services/episode.service';
+
 import { CharacterResponse } from 'src/app/interfaces/character.interface';
+import { EpisodeResponse } from 'src/app/interfaces/episode.interface';
 
 @Component({
   selector: 'app-card',
@@ -10,16 +13,27 @@ export class CardComponent implements OnInit {
 
   @Input() characters: CharacterResponse[] = [];
 
-  // @Input() character: CharacterResponse[] = [];
+  episodes: EpisodeResponse[] = [];
 
-  constructor() {}
+  constructor( private episode: EpisodeService ) {}
 
   ngOnInit(): void {
-    // console.log("porque "+ this.characters);
+    this.getEpisodes();
+  }
+
+  getEpisodes() {
+    this.episode.getEpisodes()
+    .subscribe( (resp: EpisodeResponse[]) => {
+      // console.log(resp);
+      this.episodes = resp;
+    });
   }
 
   alert( name: string): void {
-    alert(name);
+    alert( name );
+    console.log(this.episode.getEpisodesByCharacter(name, this.episodes));
+
+    console.log(this.episodes)
   }
 
 }
