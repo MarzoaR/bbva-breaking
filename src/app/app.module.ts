@@ -8,12 +8,14 @@ import { HomeComponent } from './views/home/home.component';
 import { CardComponent } from './components/card/card.component';
 import { FooterModule } from './components/footer/footer.module';
 import { HeaderModule } from './components/header/header.module';
+import { LastEpisodeComponent } from './components/last-episode/last-episode.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CardComponent
+    CardComponent,
+    LastEpisodeComponent
   ],
   imports: [
     BrowserModule,
