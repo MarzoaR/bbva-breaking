@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CharacterResponse } from 'src/app/interfaces/character.interface';
 
 @Component({
   selector: 'app-card',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CardComponent implements OnInit {
 
-  constructor() { }
+  @Input() characters: CharacterResponse[] = [];
+
+  // @Input() character: CharacterResponse[] = [];
+
+  constructor() {}
 
   ngOnInit(): void {
+    // console.log("porque "+ this.characters);
+  }
+
+  alert( name: string): void {
+    alert(name);
   }
 
 }

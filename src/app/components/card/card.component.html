@@ -1,9 +1,15 @@
-<div class="card">
-  <div class="card-img">
-    <img src="https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg" alt="">
-  </div>
-  <div class="card-body">
-    <p>name</p>
-    <p>ocupacion</p>
-  </div>
-</div>
+<section class="container">
+  <div *ngFor="let character of characters" class="card" (click)="alert(character.name)">
+    <!-- <div class="card"> -->
+      <div class="card-img">
+        <img [src]="character.img" alt="{{character.name}}">
+      </div>
+      <div class="card-body">
+        <p>{{character.name}}</p>
+        <h4>Occupation</h4>
+        <p *ngFor="let occupation of character.occupation">{{occupation}}</p>
+        <!-- <p>{{characters[0].name}}</p> -->
+      </div>
+    </div>
+</section>
+
