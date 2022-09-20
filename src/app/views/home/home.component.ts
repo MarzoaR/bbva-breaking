@@ -19,20 +19,20 @@ export class HomeComponent implements OnInit {
 
   getCharacters() {
     this.actors.getCharacters()
-    .subscribe( (resp: CharacterResponse) => {
+    .subscribe( (resp: CharacterResponse[]) => {
       this.getCharactersBySeason(resp);
     } );
   }
 
-  getCharactersBySeason( characters: CharacterResponse) {
+  getCharactersBySeason( characters: CharacterResponse[]) {
     this.getCharacterOrder( this.actors.getCharactersBySeason(characters) );
   }
 
-  getCharacterOrder( characters: CharacterResponse ) {
+  getCharacterOrder( characters: CharacterResponse[] ) {
     this.getCharaterOrderReverse( this.actors.getCharacterOrder(characters) );
   }
 
-  getCharaterOrderReverse( characters: CharacterResponse ) {
+  getCharaterOrderReverse( characters: CharacterResponse[] ) {
     this.characters = this.actors.getCharaterOrderReverse( characters );
   }
 
