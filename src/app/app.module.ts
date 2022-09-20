@@ -6,6 +6,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { CardComponent } from './components/card/card.component';
+import { FooterModule } from './components/footer/footer.module';
+import { HeaderModule } from './components/header/header.module';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { CardComponent } from './components/card/card.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FooterModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,25 @@
+.btn__img {
+  height: 46px;
+  width: auto;
+  padding: auto;
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style-type: none;
+  padding: 0px;
+}
+
+li {
+  padding: 10px;
+}
+
+p {
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  margin: 10px;
+}

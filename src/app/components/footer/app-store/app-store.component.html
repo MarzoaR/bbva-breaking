@@ -1,0 +1,8 @@
+<p>Tu banco en el móvil con la app de BBVA</p>
+<ul>
+  <li *ngFor="let store of stores; let i = index">
+    <a href="{{store.url}}" target="_blank">
+      <img src="{{store.img}}" class="btn__img" alt="store.alt">
+    </a>
+  </li>
+</ul>
