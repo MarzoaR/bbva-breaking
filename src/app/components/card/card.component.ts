@@ -34,9 +34,9 @@ export class CardComponent implements OnInit {
 
   getInfoEpisodes( name: string): void {
     this.episodesByCharacter = this.episode.getEpisodesByCharacter( name, this.episodes );
-    console.log(this.episode.getEpisodesByCharacter(name, this.episodes));
+    // console.log(this.episode.getEpisodesByCharacter(name, this.episodes));
 
-    console.log(this.episodes)
+    // console.log(this.episodes)
 
     this.callAlert( name, this.episodesByCharacter );
 
