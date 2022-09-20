@@ -16,6 +16,7 @@ export class CardComponent implements OnInit {
   @Input() characters: CharacterResponse[] = [];
 
   episodes: EpisodeResponse[] = [];
+  episodesByCharacter: EpisodeResponse[] = [];
 
   constructor( private episode: EpisodeService ) {}
 
@@ -32,16 +33,30 @@ export class CardComponent implements OnInit {
   }
 
   getInfoEpisodes( name: string): void {
-    const episodesByCharacter: EpisodeResponse[] = this.episode.getEpisodesByCharacter( name, this.episodes );
+    this.episodesByCharacter = this.episode.getEpisodesByCharacter( name, this.episodes );
     console.log(this.episode.getEpisodesByCharacter(name, this.episodes));
 
     console.log(this.episodes)
 
-    let text: string = '';
+    this.callAlert( name, this.episodesByCharacter );
+
+    // let text: string = '';
 
     // for (const episode of episodesByCharacter) {
     //   text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`;
     // }
+
+    // episodesByCharacter.forEach(episode => text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`);
+
+    // Swal.fire({
+    //   title: name,
+    //   html: `${text}`,
+    // })
+
+  }
+
+  callAlert( name: string, episodesByCharacter: EpisodeResponse[] ): void {
+    let text: string = '';
 
     episodesByCharacter.forEach(episode => text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`);
 
@@ -49,7 +64,6 @@ export class CardComponent implements OnInit {
       title: name,
       html: `${text}`,
     })
-
   }
 
 }
