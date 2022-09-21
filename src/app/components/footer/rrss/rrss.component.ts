@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-rrss',
   templateUrl: './rrss.component.html',
   styleUrls: ['./rrss.component.scss']
 })
-export class RrssComponent implements OnInit {
+export class RrssComponent {
 
   links:any[] = [
     {
@@ -29,10 +29,5 @@ export class RrssComponent implements OnInit {
       url: 'https://www.youtube.com/user/BBVAespana'
     },
   ]
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

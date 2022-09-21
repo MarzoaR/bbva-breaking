@@ -27,42 +27,21 @@ export class CardComponent implements OnInit {
   getEpisodes() {
     this.episode.getEpisodes()
     .subscribe( (resp: EpisodeResponse[]) => {
-      // console.log(resp);
       this.episodes = resp;
     });
   }
 
   getInfoEpisodes( name: string): void {
     this.episodesByCharacter = this.episode.getEpisodesByCharacter( name, this.episodes );
-    // console.log(this.episode.getEpisodesByCharacter(name, this.episodes));
-
-    // console.log(this.episodes)
-
     this.callAlert( name, this.episodesByCharacter );
-
-    // let text: string = '';
-
-    // for (const episode of episodesByCharacter) {
-    //   text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`;
-    // }
-
-    // episodesByCharacter.forEach(episode => text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`);
-
-    // Swal.fire({
-    //   title: name,
-    //   html: `${text}`,
-    // })
-
   }
 
   callAlert( name: string, episodesByCharacter: EpisodeResponse[] ): void {
-    let text: string = '';
-
-    episodesByCharacter.forEach(episode => text += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`);
-
+    let listSeasonEpisode: string = '';
+    episodesByCharacter.forEach(episode => listSeasonEpisode += `<p>Season: ${episode.season} - Episode: ${episode.episode}</p><p>Title: ${episode.title}</p>`);
     Swal.fire({
       title: name,
-      html: `${text}`,
+      html: `${listSeasonEpisode}`,
     })
   }
 

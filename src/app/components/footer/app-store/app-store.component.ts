@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-store',
   templateUrl: './app-store.component.html',
   styleUrls: ['./app-store.component.scss']
 })
-export class AppStoreComponent implements OnInit {
+export class AppStoreComponent {
 
   stores:any[] = [
     {
@@ -24,11 +24,5 @@ export class AppStoreComponent implements OnInit {
       url: 'https://appgallery.huawei.com/#/app/C101673739'
     }
   ]
-
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

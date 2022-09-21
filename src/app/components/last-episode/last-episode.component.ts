@@ -22,13 +22,13 @@ export class LastEpisodeComponent implements OnInit {
   getEpisodes() {
     this.episode.getEpisodes()
     .subscribe( (resp: EpisodeResponse[]) => {
-      this.lastEpisode = this.getlastEpisode( resp );
+      this.lastEpisode = this.getLastEpisode( resp );
       this.dateLastEpisode = this.getDateLastEpisode( this.lastEpisode );
       this.getDaysLastEpisode(this.dateLastEpisode)
     });
   }
 
-  getlastEpisode( episodes: EpisodeResponse[] ): EpisodeResponse[] {
+  getLastEpisode( episodes: EpisodeResponse[] ): EpisodeResponse[] {
     return episodes.filter( episode => episode.title.includes("Felina"));
   }
 
@@ -37,14 +37,14 @@ export class LastEpisodeComponent implements OnInit {
   }
 
   getDaysLastEpisode( date: string): void {
-    let formatDate = this.formatDate( date );
-    let fechaFin    = new Date().getTime();
-    let fechaIni    = new Date(formatDate).getTime();
+    const formatDate = this.formatDate( date );
+    const fechaFin = new Date().getTime();
+    const fechaIni = new Date(formatDate).getTime();
     this.days = Math.floor((fechaFin - fechaIni) / (1000 * 60 * 60 * 24));
   }
 
   formatDate( date: string ): string {
-    let dateArray = date.split('-');
+    const dateArray: string[] = date.split('-');
     return `${dateArray[2]}-${dateArray[0]}-${dateArray[1]}`;
   }
 

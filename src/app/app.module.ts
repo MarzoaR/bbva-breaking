@@ -6,9 +6,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { CardComponent } from './components/card/card.component';
+import { LastEpisodeComponent } from './components/last-episode/last-episode.component';
 import { FooterModule } from './components/footer/footer.module';
 import { HeaderModule } from './components/header/header.module';
-import { LastEpisodeComponent } from './components/last-episode/last-episode.component';
 
 @NgModule({
   declarations: [

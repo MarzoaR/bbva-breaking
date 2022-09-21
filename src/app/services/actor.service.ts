@@ -29,7 +29,6 @@ export class ActorService {
         return -1;
       }
       return 0;
-      // a.name > b.name ? 1 : a.name < b.name ? -1 : 0;
     });
   }
 
