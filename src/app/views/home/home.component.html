@@ -1,7 +1,7 @@
 <main>
   <h1>Characters who share season 3 and 5</h1>
   <section class="container">
-    <app-card [characters]="characters"></app-card>
+    <app-card [characters]="characters" [episodes]="episodes"></app-card>
   </section>
-  <app-last-episode></app-last-episode>
+  <app-last-episode [episodes]="episodes"></app-last-episode>
 </main>

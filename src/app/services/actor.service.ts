@@ -21,15 +21,7 @@ export class ActorService {
   }
 
   getCharacterOrder( characters: CharacterResponse[] ): CharacterResponse[] {
-    return characters.sort( (a: CharacterResponse, b: CharacterResponse) => {
-      if ( a.name > b.name ) {
-        return 1;
-      }
-      if ( a.name < b.name ) {
-        return -1;
-      }
-      return 0;
-    });
+    return characters.sort( (a: CharacterResponse, b: CharacterResponse) => a.name.localeCompare(b.name) );
   }
 
   getCharaterOrderReverse( characters: CharacterResponse[] ): CharacterResponse[] {

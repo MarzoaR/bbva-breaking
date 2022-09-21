@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { EpisodeService } from 'src/app/services/episode.service';
 
 import { CharacterResponse } from 'src/app/interfaces/character.interface';
@@ -11,28 +11,17 @@ import Swal from 'sweetalert2';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
 
   @Input() characters: CharacterResponse[] = [];
+  @Input() episodes: EpisodeResponse[] = [];
 
-  episodes: EpisodeResponse[] = [];
   episodesByCharacter: EpisodeResponse[] = [];
 
-  constructor( private episode: EpisodeService ) {}
-
-  ngOnInit(): void {
-    this.getEpisodes();
-  }
-
-  getEpisodes() {
-    this.episode.getEpisodes()
-    .subscribe( (resp: EpisodeResponse[]) => {
-      this.episodes = resp;
-    });
-  }
+  constructor( private episodeService: EpisodeService ) {}
 
   getInfoEpisodes( name: string): void {
-    this.episodesByCharacter = this.episode.getEpisodesByCharacter( name, this.episodes );
+    this.episodesByCharacter = this.episodeService.getEpisodesByCharacter( name, this.episodes );
     this.callAlert( name, this.episodesByCharacter );
   }
 
